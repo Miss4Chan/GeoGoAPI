@@ -9,6 +9,5 @@ public class PlaceLikes
     public Place? Place { get; set; }
     public double Score { get; set; }
 
-
     public ICollection<InteractionEvent> InteractionEvents { get; set; } = [];
 }
