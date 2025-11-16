@@ -64,10 +64,23 @@ builder.Services.AddDbContext<GeoGoDbContext>(opt =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IPlaceRepository, PlaceRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IUserTwinRepository, UserTwinRepository>();
+builder.Services.AddScoped<ICategoryWeightsRepository, CategoryWeightsRepository>();
+builder.Services.AddScoped<IPlaceLikesRepository, PlaceLikesRepository>();
+builder.Services.AddScoped<IInteractionEventRepository, InteractionEventRepository>();
+builder.Services.AddScoped<IVirtualPlaceRepository, VirtualPlaceRepository>();
+builder.Services.AddScoped<IVirtualObjectRepository, VirtualObjectRepository>();
 
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IPlaceService, PlaceService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IUserTwinService, UserTwinService>();
+builder.Services.AddScoped<ICategoryWeightsService, CategoryWeightsService>();
+builder.Services.AddScoped<IPlaceLikesService, PlaceLikesService>();
+builder.Services.AddScoped<IInteractionEventService, InteractionEventService>();
+builder.Services.AddScoped<IInteractionProcessorService, InteractionProcessorService>();
+builder.Services.AddScoped<IVirtualPlaceService, VirtualPlaceService>();
+builder.Services.AddScoped<IVirtualObjectService, VirtualObjectService>();
 
 builder.Services.AddControllers();
 
@@ -105,6 +118,7 @@ app.UseSwaggerUI(c =>
     c.DefaultModelsExpandDepth(-1);
     c.DocExpansion(DocExpansion.None);
     c.EnableTryItOutByDefault();
+    c.DisplayOperationId();
 });
 app.UseAuthentication();
 app.UseAuthorization();
