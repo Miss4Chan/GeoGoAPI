@@ -11,6 +11,7 @@ public interface IVirtualObjectService
         int virtualPlaceId,
         string name,
         string modelUrl,
+        string modelUrlTexture,
         float px,
         float py,
         float pz,

@@ -23,6 +23,7 @@ public class VirtualObjectService(
         int virtualPlaceId,
         string name,
         string modelUrl,
+        string modelUrlTexture,
         float px,
         float py,
         float pz,
@@ -45,6 +46,7 @@ public class VirtualObjectService(
             VirtualPlaceId = virtualPlaceId,
             Name = name,
             ModelUrl = modelUrl,
+            ModelUrlTexture = modelUrlTexture,
             PX = px,
             PY = py,
             PZ = pz,
@@ -71,6 +73,7 @@ public class VirtualObjectService(
 
         existing.Name = updated.Name;
         existing.ModelUrl = updated.ModelUrl;
+        existing.ModelUrlTexture = updated.ModelUrlTexture;
 
         existing.PX = updated.PX;
         existing.PY = updated.PY;

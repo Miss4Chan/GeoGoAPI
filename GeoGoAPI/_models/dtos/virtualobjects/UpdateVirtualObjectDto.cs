@@ -4,6 +4,7 @@ public class UpdateVirtualObjectDto
 {
     public required string Name { get; set; }
     public required string ModelUrl { get; set; }
+    public required string ModelUrlTexture { get; set; }
 
     public float PX { get; set; }
     public float PY { get; set; }

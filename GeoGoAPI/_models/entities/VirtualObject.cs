@@ -8,6 +8,7 @@ public class VirtualObject
 
     public required string Name { get; set; }
     public required string ModelUrl { get; set; }
+    public required string ModelUrlTexture { get; set; }
 
     // Transform (Position / Rotation / Scale)
     public float PX { get; set; }

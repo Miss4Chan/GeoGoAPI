@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json.Serialization;
 using GeoGoAPI._models;
 using GeoGoAPI._repositories.implementation;
 using GeoGoAPI._repositories.interfaces;
@@ -107,6 +108,13 @@ builder
         };
     });
 
+builder
+    .Services.AddControllers()
+    .AddJsonOptions(o =>
+    {
+        o.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
+
 var app = builder.Build();
 app.UseRouting();
 app.UseSwagger();
@@ -123,4 +131,11 @@ app.UseSwaggerUI(c =>
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<GeoGoDbContext>();
+    await DbSeeder.SeedAsync(db);
+}
+
 app.Run();
