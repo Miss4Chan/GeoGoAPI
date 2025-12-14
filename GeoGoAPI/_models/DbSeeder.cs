@@ -72,11 +72,18 @@ public static class DbSeeder
         // ----------------------------
         // 4) VirtualObjects (2 per virtual place)
         // ----------------------------
-        // You will replace these later with your real GitHub raw links
-        const string placeholderObj =
-            "https://raw.githubusercontent.com/youruser/yourrepo/main/models/placeholder.obj";
-        const string placeholderTex =
-            "https://raw.githubusercontent.com/youruser/yourrepo/main/models/placeholder.png";
+        const string casteloObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/sandcastle_mesh.obj";
+
+        const string pracaObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/main/coin.obj";
+
+        const string ponteObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/bridge_mesh.obj";
+
+        const string castleTexAsset = "models/castle_albedo.png";
+        const string coinTexAsset = "models/coin_albedo.png";
+        const string bridgeTexAsset = "models/bridge_albedo.png";
 
         db.VirtualObjects.AddRange(
             // Castelo
@@ -84,43 +91,26 @@ public static class DbSeeder
             {
                 Name = "Castelo - Object A",
                 VirtualPlaceId = vpCastelo.Id,
-                ModelUrl = placeholderObj,
-                ModelUrlTexture = placeholderTex,
-                PX = 0f,
+                ModelUrl = casteloObj,
+                ModelUrlTexture = castleTexAsset,
+                PX = -0.2f,
                 PY = 0f,
-                PZ = -1.2f,
+                PZ = -1.3f,
                 RX = 0f,
-                RY = 30f,
+                RY = 0f,
                 RZ = 0f,
-                SX = 0.4f,
-                SY = 0.4f,
-                SZ = 0.4f,
+                SX = 0.5f,
+                SY = 0.5f,
+                SZ = 0.5f,
                 TextDisplayed = "Welcome to the castle!",
-            },
-            new VirtualObject
-            {
-                Name = "Castelo - Object B",
-                VirtualPlaceId = vpCastelo.Id,
-                ModelUrl = placeholderObj,
-                ModelUrlTexture = placeholderTex,
-                PX = 0.4f,
-                PY = 0f,
-                PZ = -1.6f,
-                RX = 0f,
-                RY = -25f,
-                RZ = 0f,
-                SX = 0.35f,
-                SY = 0.35f,
-                SZ = 0.35f,
-                TextDisplayed = "Find me near the wall.",
             },
             // Praça
             new VirtualObject
             {
                 Name = "Praça - Object A",
                 VirtualPlaceId = vpPraca.Id,
-                ModelUrl = placeholderObj,
-                ModelUrlTexture = placeholderTex,
+                ModelUrl = pracaObj,
+                ModelUrlTexture = coinTexAsset,
                 PX = -0.2f,
                 PY = 0f,
                 PZ = -1.3f,
@@ -132,30 +122,13 @@ public static class DbSeeder
                 SZ = 0.5f,
                 TextDisplayed = "Central square vibe.",
             },
-            new VirtualObject
-            {
-                Name = "Praça - Object B",
-                VirtualPlaceId = vpPraca.Id,
-                ModelUrl = placeholderObj,
-                ModelUrlTexture = placeholderTex,
-                PX = 0.2f,
-                PY = 0f,
-                PZ = -1.9f,
-                RX = 0f,
-                RY = 60f,
-                RZ = 0f,
-                SX = 0.45f,
-                SY = 0.45f,
-                SZ = 0.45f,
-                TextDisplayed = "Look around!",
-            },
             // Ponte
             new VirtualObject
             {
                 Name = "Ponte - Object A",
                 VirtualPlaceId = vpPonte.Id,
-                ModelUrl = placeholderObj,
-                ModelUrlTexture = placeholderTex,
+                ModelUrl = ponteObj,
+                ModelUrlTexture = bridgeTexAsset,
                 PX = 0f,
                 PY = 0f,
                 PZ = -1.4f,
@@ -166,23 +139,6 @@ public static class DbSeeder
                 SY = 0.55f,
                 SZ = 0.55f,
                 TextDisplayed = "Bridge checkpoint.",
-            },
-            new VirtualObject
-            {
-                Name = "Ponte - Object B",
-                VirtualPlaceId = vpPonte.Id,
-                ModelUrl = placeholderObj,
-                ModelUrlTexture = placeholderTex,
-                PX = -0.5f,
-                PY = 0f,
-                PZ = -2.0f,
-                RX = 0f,
-                RY = -10f,
-                RZ = 0f,
-                SX = 0.5f,
-                SY = 0.5f,
-                SZ = 0.5f,
-                TextDisplayed = "Almost there.",
             }
         );
         await db.SaveChangesAsync();

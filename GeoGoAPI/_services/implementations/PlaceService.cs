@@ -95,6 +95,7 @@ public class PlaceService(IPlaceRepository repo) : IPlaceService
         {
             Id = p.Id,
             Name = p.Name,
+            VirtualPlaceId = p.VirtualPlace!.Id,
             Latitude = p.Latitude,
             Longitude = p.Longitude,
             CategoryId = p.CategoryId,
