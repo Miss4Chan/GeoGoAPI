@@ -21,7 +21,8 @@ public interface IVirtualObjectService
         float sx,
         float sy,
         float sz,
-        string? textDisplayed
+        string? textDisplayed,
+        string? stepsJson
     );
 
     Task<VirtualObject?> UpdateAsync(VirtualObject updated);

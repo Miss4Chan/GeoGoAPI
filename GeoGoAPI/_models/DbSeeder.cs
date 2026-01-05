@@ -85,8 +85,18 @@ public static class DbSeeder
         const string coinTexAsset = "models/coin_albedo.png";
         const string bridgeTexAsset = "models/bridge_albedo.png";
 
+        static string Steps(params (string id, string title, string text)[] steps) =>
+            $$"""
+    [
+      {{string.Join(",\n", steps.Select(s =>
+        $$"""
+          { "id": "{{s.id}}", "title": "{{s.title}}", "text": "{{s.text}}" }
+        """))}}
+    ]
+    """;
+
         db.VirtualObjects.AddRange(
-            // Castelo
+            // ---------------- Castelo (2 objects) ----------------
             new VirtualObject
             {
                 Name = "Castelo - Object A",
@@ -103,8 +113,59 @@ public static class DbSeeder
                 SY = 0.5f,
                 SZ = 0.5f,
                 TextDisplayed = "Welcome to the castle!",
+                StepsJson = Steps(
+                    (
+                        "intro",
+                        "Welcome",
+                        "You’re looking at Castelo de Leiria — a medieval landmark overlooking the city."
+                    ),
+                    (
+                        "rotate",
+                        "Inspect",
+                        "Rotate the model and look for the towers and the defensive walls."
+                    ),
+                    (
+                        "facts",
+                        "Fun fact",
+                        "The castle’s layout changed across centuries due to wars and restorations."
+                    )
+                ),
             },
-            // Praça
+            new VirtualObject
+            {
+                Name = "Castelo - Object B",
+                VirtualPlaceId = vpCastelo.Id,
+                ModelUrl = casteloObj, // duplicate mesh for demo
+                ModelUrlTexture = castleTexAsset,
+                PX = 0.35f,
+                PY = 0f,
+                PZ = -1.15f, // different placement
+                RX = 0f,
+                RY = 25f,
+                RZ = 0f,
+                SX = 0.42f,
+                SY = 0.42f,
+                SZ = 0.42f,
+                TextDisplayed = "Find the hidden viewpoint!",
+                StepsJson = Steps(
+                    (
+                        "intro",
+                        "Spot it",
+                        "This second marker represents a different angle of the castle."
+                    ),
+                    (
+                        "rotate",
+                        "Rotate & zoom",
+                        "Rotate and scale it until you can clearly see the main keep."
+                    ),
+                    (
+                        "facts",
+                        "Did you know?",
+                        "Leiria’s castle is linked to the early Portuguese monarchy."
+                    )
+                ),
+            },
+            // ---------------- Praça (2 objects) ----------------
             new VirtualObject
             {
                 Name = "Praça - Object A",
@@ -121,8 +182,59 @@ public static class DbSeeder
                 SY = 0.5f,
                 SZ = 0.5f,
                 TextDisplayed = "Central square vibe.",
+                StepsJson = Steps(
+                    (
+                        "intro",
+                        "Welcome",
+                        "Praça Rodrigues Lobo is one of Leiria’s most iconic social spots."
+                    ),
+                    (
+                        "rotate",
+                        "Check details",
+                        "Rotate the object and look for its engraved edges."
+                    ),
+                    (
+                        "facts",
+                        "Culture note",
+                        "This square often hosts events, music, and local gatherings."
+                    )
+                ),
             },
-            // Ponte
+            new VirtualObject
+            {
+                Name = "Praça - Object B",
+                VirtualPlaceId = vpPraca.Id,
+                ModelUrl = pracaObj,
+                ModelUrlTexture = coinTexAsset,
+                PX = 0.25f,
+                PY = 0f,
+                PZ = -1.05f,
+                RX = 0f,
+                RY = -15f,
+                RZ = 0f,
+                SX = 0.6f,
+                SY = 0.6f,
+                SZ = 0.6f,
+                TextDisplayed = "Try to align it!",
+                StepsJson = Steps(
+                    (
+                        "intro",
+                        "Challenge",
+                        "This object is about aligning perspective in the square."
+                    ),
+                    (
+                        "rotate",
+                        "Align",
+                        "Rotate it until it ‘matches’ the direction of the street."
+                    ),
+                    (
+                        "facts",
+                        "Local tip",
+                        "Cafés around the praça are a popular stop for students and tourists."
+                    )
+                ),
+            },
+            // ---------------- Ponte (2 objects) ----------------
             new VirtualObject
             {
                 Name = "Ponte - Object A",
@@ -139,8 +251,60 @@ public static class DbSeeder
                 SY = 0.55f,
                 SZ = 0.55f,
                 TextDisplayed = "Bridge checkpoint.",
+                StepsJson = Steps(
+                    (
+                        "intro",
+                        "Welcome",
+                        "This spot highlights a crossing point connecting neighborhoods."
+                    ),
+                    (
+                        "rotate",
+                        "Explore",
+                        "Rotate the model and observe its structure and direction."
+                    ),
+                    (
+                        "facts",
+                        "Nature note",
+                        "Areas near bridges often become small biodiversity corridors."
+                    )
+                ),
+            },
+            new VirtualObject
+            {
+                Name = "Ponte - Object B",
+                VirtualPlaceId = vpPonte.Id,
+                ModelUrl = ponteObj,
+                ModelUrlTexture = bridgeTexAsset,
+                PX = -0.35f,
+                PY = 0f,
+                PZ = -1.1f,
+                RX = 0f,
+                RY = -20f,
+                RZ = 0f,
+                SX = 0.48f,
+                SY = 0.48f,
+                SZ = 0.48f,
+                TextDisplayed = "Look underneath!",
+                StepsJson = Steps(
+                    (
+                        "intro",
+                        "Underpass",
+                        "This object focuses on what’s beneath and around the bridge."
+                    ),
+                    (
+                        "rotate",
+                        "Inspect angle",
+                        "Rotate and zoom to get a good ‘under-bridge’ viewpoint."
+                    ),
+                    (
+                        "facts",
+                        "Fun fact",
+                        "Bridges are common reference points in local navigation stories."
+                    )
+                ),
             }
         );
+
         await db.SaveChangesAsync();
 
         // ----------------------------

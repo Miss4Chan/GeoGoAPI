@@ -61,7 +61,8 @@ public class VirtualObjectsController(IVirtualObjectService virtualObjectService
             sx: dto.SX,
             sy: dto.SY,
             sz: dto.SZ,
-            textDisplayed: dto.TextDisplayed
+            textDisplayed: dto.TextDisplayed,
+            stepsJson: dto.StepsJson
         );
 
         if (vo is null)
@@ -100,6 +101,7 @@ public class VirtualObjectsController(IVirtualObjectService virtualObjectService
                 SY = dto.SY,
                 SZ = dto.SZ,
                 TextDisplayed = dto.TextDisplayed,
+                StepsJson = dto.StepsJson,
             }
         );
 
@@ -137,5 +139,6 @@ public class VirtualObjectsController(IVirtualObjectService virtualObjectService
             SY = vo.SY,
             SZ = vo.SZ,
             TextDisplayed = vo.TextDisplayed,
+            StepsJson = vo.StepsJson,
         };
 }

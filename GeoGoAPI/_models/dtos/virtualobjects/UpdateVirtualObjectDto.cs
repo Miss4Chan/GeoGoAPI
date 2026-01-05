@@ -19,4 +19,5 @@ public class UpdateVirtualObjectDto
     public float SZ { get; set; } = 1f;
 
     public string? TextDisplayed { get; set; }
+    public string? StepsJson { get; set; }
 }

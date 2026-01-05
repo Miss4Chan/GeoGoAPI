@@ -22,4 +22,5 @@ public class VirtualObjectDto
     public float SZ { get; set; }
 
     public string? TextDisplayed { get; set; }
+    public string? StepsJson { get; set; }
 }

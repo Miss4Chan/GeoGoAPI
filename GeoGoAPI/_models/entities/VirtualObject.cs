@@ -25,5 +25,6 @@ public class VirtualObject
 
     public string? TextDisplayed { get; set; }
 
+    public string? StepsJson { get; set; }
     public ICollection<InteractionEvent> InteractionEvents { get; set; } = [];
 }

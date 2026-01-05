@@ -33,7 +33,8 @@ public class VirtualObjectService(
         float sx,
         float sy,
         float sz,
-        string? textDisplayed
+        string? textDisplayed,
+        string? stepsJson
     )
     {
         // Ensure the virtual place exists (and is not filtered out)
@@ -57,6 +58,7 @@ public class VirtualObjectService(
             SY = sy,
             SZ = sz,
             TextDisplayed = textDisplayed,
+            StepsJson = stepsJson,
         };
 
         await virtualObjectRepository.AddAsync(vo);
@@ -88,6 +90,7 @@ public class VirtualObjectService(
         existing.SZ = updated.SZ;
 
         existing.TextDisplayed = updated.TextDisplayed;
+        existing.StepsJson = updated.StepsJson;
 
         virtualObjectRepository.Update(existing);
         await virtualObjectRepository.SaveChangesAsync();
