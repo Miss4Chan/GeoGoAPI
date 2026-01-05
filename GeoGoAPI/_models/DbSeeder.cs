@@ -73,7 +73,7 @@ public static class DbSeeder
         // 4) VirtualObjects (2 per virtual place)
         // ----------------------------
         const string casteloObj =
-            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/castle_test.obj";
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/castle.obj";
 
         const string pracaObj =
             "https://raw.githubusercontent.com/lCubosl/geogo-objects/main/coin.obj";
