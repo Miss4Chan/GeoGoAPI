@@ -81,9 +81,27 @@ public static class DbSeeder
         const string ponteObj =
             "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/bridge_mesh.obj";
 
+        const string coinObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/coin.obj";
+        const string coinBagObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/coin_bag.obj";
+        const string duckObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/duck.obj";
+        const string guardObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/guard.obj";
+        const string lanternObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/lantern.obj";
+        const string scrollObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/scroll.obj";
+        const string shieldObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/shield.obj";
+        const string swordObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/sword.obj";
+
         const string castleTexAsset = "models/castle_albedo.png";
         const string coinTexAsset = "models/coin_albedo.png";
         const string bridgeTexAsset = "models/bridge_albedo.png";
+
+        const string coinAlbedo = "models/coin_albedo.png";
+        const string coinBagAlbedo = "models/coin_albedo.png";
+        const string duckAlbedo = "models/duck_albedo.png";
+        const string guardAlbedo = "models/guard_albedo.png";
+        const string lanternAlbedo = "models/lantern_albedo.png";
+        const string scrollAlbedo = "models/scroll_albedo.png";
+        const string shieldAlbedo = "models/shield_albedo.png";
+        const string swordAlbedo = "models/sword_albedo.png";
 
         static string Steps(params (string id, string title, string text)[] steps) =>
             $$"""
@@ -101,33 +119,33 @@ public static class DbSeeder
             {
                 Name = "Castelo - Object A",
                 VirtualPlaceId = vpCastelo.Id,
-                ModelUrl = casteloObj,
-                ModelUrlTexture = castleTexAsset,
-                PX = -0.2f,
-                PY = 0f,
-                PZ = -1.3f,
+                ModelUrl = guardObj,
+                ModelUrlTexture = guardAlbedo,
+                PX = 0f,
+                PY = -5f,
+                PZ = 0f,
                 RX = 0f,
                 RY = 0f,
-                RZ = 0f,
-                SX = 0.5f,
-                SY = 0.5f,
-                SZ = 0.5f,
+                RZ = 90f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
                 TextDisplayed = "Welcome to the castle!",
                 StepsJson = Steps(
                     (
                         "intro",
                         "Welcome",
-                        "You’re looking at Castelo de Leiria — a medieval landmark overlooking the city."
+                        "Praça Rodrigues Lobo is one of Leiria’s most iconic social spots."
                     ),
                     (
                         "rotate",
-                        "Inspect",
-                        "Rotate the model and look for the towers and the defensive walls."
+                        "Check details",
+                        "Rotate the object and look for its engraved edges."
                     ),
                     (
                         "facts",
-                        "Fun fact",
-                        "The castle’s layout changed across centuries due to wars and restorations."
+                        "Culture note",
+                        "This square often hosts events, music, and local gatherings."
                     )
                 ),
             },
@@ -135,33 +153,33 @@ public static class DbSeeder
             {
                 Name = "Castelo - Object B",
                 VirtualPlaceId = vpCastelo.Id,
-                ModelUrl = casteloObj, // duplicate mesh for demo
-                ModelUrlTexture = castleTexAsset,
-                PX = 0.35f,
-                PY = 0f,
-                PZ = -1.15f, // different placement
+                ModelUrl = shieldObj, // duplicate mesh for demo
+                ModelUrlTexture = shieldAlbedo,
+                PX = 0f,
+                PY = -5f,
+                PZ = -5f, // different placement
                 RX = 0f,
-                RY = 25f,
-                RZ = 0f,
-                SX = 0.42f,
-                SY = 0.42f,
-                SZ = 0.42f,
+                RY = 0f,
+                RZ = 90f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
                 TextDisplayed = "Find the hidden viewpoint!",
                 StepsJson = Steps(
                     (
                         "intro",
-                        "Spot it",
-                        "This second marker represents a different angle of the castle."
+                        "Welcome",
+                        "Praça Rodrigues Lobo is one of Leiria’s most iconic social spots."
                     ),
                     (
                         "rotate",
-                        "Rotate & zoom",
-                        "Rotate and scale it until you can clearly see the main keep."
+                        "Check details",
+                        "Rotate the object and look for its engraved edges."
                     ),
                     (
                         "facts",
-                        "Did you know?",
-                        "Leiria’s castle is linked to the early Portuguese monarchy."
+                        "Culture note",
+                        "This square often hosts events, music, and local gatherings."
                     )
                 ),
             },
@@ -170,17 +188,17 @@ public static class DbSeeder
             {
                 Name = "Praça - Object A",
                 VirtualPlaceId = vpPraca.Id,
-                ModelUrl = pracaObj,
-                ModelUrlTexture = coinTexAsset,
-                PX = -0.2f,
-                PY = 0f,
-                PZ = -1.3f,
+                ModelUrl = duckObj,
+                ModelUrlTexture = duckAlbedo,
+                PX = 0f,
+                PY = -5f,
+                PZ = -5f,
                 RX = 0f,
                 RY = 0f,
-                RZ = 0f,
-                SX = 0.5f,
-                SY = 0.5f,
-                SZ = 0.5f,
+                RZ = 90f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
                 TextDisplayed = "Central square vibe.",
                 StepsJson = Steps(
                     (
@@ -204,17 +222,17 @@ public static class DbSeeder
             {
                 Name = "Praça - Object B",
                 VirtualPlaceId = vpPraca.Id,
-                ModelUrl = pracaObj,
-                ModelUrlTexture = coinTexAsset,
-                PX = 0.25f,
+                ModelUrl = lanternObj,
+                ModelUrlTexture = lanternAlbedo,
+                PX = 0f,
                 PY = 0f,
-                PZ = -1.05f,
+                PZ = -5f,
                 RX = 0f,
-                RY = -15f,
-                RZ = 0f,
-                SX = 0.6f,
-                SY = 0.6f,
-                SZ = 0.6f,
+                RY = 0f,
+                RZ = 90f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
                 TextDisplayed = "Try to align it!",
                 StepsJson = Steps(
                     (
@@ -239,17 +257,17 @@ public static class DbSeeder
             {
                 Name = "Ponte - Object A",
                 VirtualPlaceId = vpPonte.Id,
-                ModelUrl = ponteObj,
-                ModelUrlTexture = bridgeTexAsset,
+                ModelUrl = scrollObj,
+                ModelUrlTexture = scrollAlbedo,
                 PX = 0f,
-                PY = 0f,
-                PZ = -1.4f,
+                PY = -5f,
+                PZ = -5f,
                 RX = 0f,
-                RY = 15f,
-                RZ = 0f,
-                SX = 0.55f,
-                SY = 0.55f,
-                SZ = 0.55f,
+                RY = 0f,
+                RZ = 90f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
                 TextDisplayed = "Bridge checkpoint.",
                 StepsJson = Steps(
                     (
@@ -273,17 +291,17 @@ public static class DbSeeder
             {
                 Name = "Ponte - Object B",
                 VirtualPlaceId = vpPonte.Id,
-                ModelUrl = ponteObj,
-                ModelUrlTexture = bridgeTexAsset,
-                PX = -0.35f,
-                PY = 0f,
-                PZ = -1.1f,
+                ModelUrl = coinBagObj,
+                ModelUrlTexture = coinBagAlbedo,
+                PX = 0f,
+                PY = -5f,
+                PZ = 0f,
                 RX = 0f,
-                RY = -20f,
-                RZ = 0f,
-                SX = 0.48f,
-                SY = 0.48f,
-                SZ = 0.48f,
+                RY = 0f,
+                RZ = 90f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
                 TextDisplayed = "Look underneath!",
                 StepsJson = Steps(
                     (
