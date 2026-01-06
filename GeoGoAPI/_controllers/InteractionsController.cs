@@ -10,8 +10,10 @@ namespace GeoGoAPI._controllers;
 
 [Authorize]
 [SwaggerTag("Endpoints for logging user interactions and updating the digital twin.")]
-public class InteractionsController(IInteractionProcessorService processorService)
-    : BaseApiController
+public class InteractionsController(
+    IInteractionProcessorService processorService,
+    IInteractionEventService interactionEventService
+) : BaseApiController
 {
     /// <summary>
     /// Processes a user interaction with a place / virtual object,
@@ -42,5 +44,22 @@ public class InteractionsController(IInteractionProcessorService processorServic
             return NotFound("Could not process interaction (user twin or place not found).");
 
         return Ok(result);
+    }
+
+    [HttpGet("history")]
+    [SwaggerOperation(
+        Summary = "Get user interaction history",
+        Description = "Returns the last 30 interactions for the authenticated user with place, category, and object details."
+    )]
+    [SwaggerResponse(200, "History retrieved", typeof(List<InteractionHistoryDto>))]
+    [SwaggerResponse(401, "User not authenticated")]
+    public async Task<ActionResult<List<InteractionHistoryDto>>> GetInteractionHistory()
+    {
+        var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        if (string.IsNullOrWhiteSpace(userIdStr) || !int.TryParse(userIdStr, out var userId))
+            return Unauthorized("Invalid or missing user id claim.");
+
+        var history = await interactionEventService.GetUserHistoryAsync(userId, limit: 30);
+        return Ok(history);
     }
 }

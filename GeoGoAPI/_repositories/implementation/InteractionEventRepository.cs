@@ -50,6 +50,23 @@ public class InteractionEventRepository(GeoGoDbContext context) : IInteractionEv
             .ToListAsync();
     }
 
+    public async Task<List<InteractionEvent>> GetUserHistoryWithDetailsAsync(
+        int userTwinId,
+        int limit = 30
+    )
+    {
+        return await context
+            .InteractionEvents.Where(ie => ie.UserTwinId == userTwinId)
+            .OrderByDescending(ie => ie.Timestamp)
+            .Take(limit)
+            .Include(ie => ie.PlaceLike)
+            .ThenInclude(pl => pl!.Place)
+            .ThenInclude(p => p!.Category)
+            .Include(ie => ie.VirtualObject)
+            .Include(ie => ie.VirtualPlace)
+            .ToListAsync();
+    }
+
     public async Task AddAsync(InteractionEvent interactionEvent)
     {
         await context.InteractionEvents.AddAsync(interactionEvent);

@@ -10,6 +10,7 @@ public interface IInteractionEventRepository
     Task<List<InteractionEvent>> GetByPlaceAsync(int placeId);
     Task<List<InteractionEvent>> GetByVirtualPlaceAsync(int virtualPlaceId);
     Task<List<InteractionEvent>> GetByVirtualObjectAsync(int virtualObjectId);
+    Task<List<InteractionEvent>> GetUserHistoryWithDetailsAsync(int userTwinId, int limit = 30);
 
     Task AddAsync(InteractionEvent interactionEvent);
 

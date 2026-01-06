@@ -81,14 +81,22 @@ public static class DbSeeder
         const string ponteObj =
             "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/bridge_mesh.obj";
 
-        const string coinObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/coin.obj";
-        const string coinBagObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/coin_bag.obj";
-        const string duckObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/duck.obj";
-        const string guardObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/guard.obj";
-        const string lanternObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/lantern.obj";
-        const string scrollObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/scroll.obj";
-        const string shieldObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/shield.obj";
-        const string swordObj = "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/sword.obj";
+        const string coinObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/coin.obj";
+        const string coinBagObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/coin_bag.obj";
+        const string duckObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/duck.obj";
+        const string guardObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/guard.obj";
+        const string lanternObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/lantern.obj";
+        const string scrollObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/scroll.obj";
+        const string shieldObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/shield.obj";
+        const string swordObj =
+            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/sword.obj";
 
         const string castleTexAsset = "models/castle_albedo.png";
         const string coinTexAsset = "models/coin_albedo.png";
@@ -114,19 +122,21 @@ public static class DbSeeder
     """;
 
         db.VirtualObjects.AddRange(
-            // ---------------- Castelo (2 objects) ----------------
+            // ============================================================
+            // CASTELO - SIDE BY SIDE (Both visible at once!)
+            // ============================================================
             new VirtualObject
             {
-                Name = "Castelo - Object A",
+                Name = "Castelo - Guard",
                 VirtualPlaceId = vpCastelo.Id,
                 ModelUrl = guardObj,
                 ModelUrlTexture = guardAlbedo,
-                PX = 0f,
-                PY = -5f,
-                PZ = 0f,
+                PX = -2f,
+                PY = 1.5f,
+                PZ = -2f,
                 RX = 0f,
                 RY = 0f,
-                RZ = 90f,
+                RZ = 0f,
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
@@ -135,81 +145,83 @@ public static class DbSeeder
                     (
                         "intro",
                         "Welcome",
-                        "Praça Rodrigues Lobo is one of Leiria’s most iconic social spots."
+                        "This guard has stood watch at Castelo de Leiria for centuries."
                     ),
                     (
                         "rotate",
                         "Check details",
-                        "Rotate the object and look for its engraved edges."
+                        "Rotate the object to see the guard's armor and equipment."
                     ),
                     (
                         "facts",
-                        "Culture note",
-                        "This square often hosts events, music, and local gatherings."
+                        "History note",
+                        "The castle was built in 1135 and has been restored multiple times."
                     )
                 ),
             },
             new VirtualObject
             {
-                Name = "Castelo - Object B",
+                Name = "Castelo - Shield",
                 VirtualPlaceId = vpCastelo.Id,
-                ModelUrl = shieldObj, // duplicate mesh for demo
+                ModelUrl = shieldObj,
                 ModelUrlTexture = shieldAlbedo,
-                PX = 0f,
-                PY = -5f,
-                PZ = -5f, // different placement
+                PX = 2f,
+                PY = 1.5f,
+                PZ = -2f,
                 RX = 0f,
                 RY = 0f,
-                RZ = 90f,
+                RZ = 0f,
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Find the hidden viewpoint!",
+                TextDisplayed = "Ancient defense!",
                 StepsJson = Steps(
                     (
                         "intro",
-                        "Welcome",
-                        "Praça Rodrigues Lobo is one of Leiria’s most iconic social spots."
+                        "Discovery",
+                        "Medieval shields were both defensive tools and symbols of honor."
                     ),
                     (
                         "rotate",
                         "Check details",
-                        "Rotate the object and look for its engraved edges."
+                        "Look for the heraldic symbols on the shield's face."
                     ),
                     (
                         "facts",
                         "Culture note",
-                        "This square often hosts events, music, and local gatherings."
+                        "Each shield design represented a family or military order."
                     )
                 ),
             },
-            // ---------------- Praça (2 objects) ----------------
+            // ============================================================
+            // PRAÇA - SIDE BY SIDE
+            // ============================================================
             new VirtualObject
             {
-                Name = "Praça - Object A",
+                Name = "Praça - Duck",
                 VirtualPlaceId = vpPraca.Id,
                 ModelUrl = duckObj,
                 ModelUrlTexture = duckAlbedo,
-                PX = 0f,
-                PY = -5f,
-                PZ = -5f,
+                PX = -2f,
+                PY = 0.5f,
+                PZ = -2f,
                 RX = 0f,
                 RY = 0f,
-                RZ = 90f,
+                RZ = 0f,
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Central square vibe.",
+                TextDisplayed = "Welcome to the square!",
                 StepsJson = Steps(
                     (
                         "intro",
                         "Welcome",
-                        "Praça Rodrigues Lobo is one of Leiria’s most iconic social spots."
+                        "Praça Rodrigues Lobo is one of Leiria's most iconic social spots."
                     ),
                     (
                         "rotate",
                         "Check details",
-                        "Rotate the object and look for its engraved edges."
+                        "This duck represents the playful spirit of the square."
                     ),
                     (
                         "facts",
@@ -220,30 +232,30 @@ public static class DbSeeder
             },
             new VirtualObject
             {
-                Name = "Praça - Object B",
+                Name = "Praça - Lantern",
                 VirtualPlaceId = vpPraca.Id,
                 ModelUrl = lanternObj,
                 ModelUrlTexture = lanternAlbedo,
-                PX = 0f,
-                PY = 0f,
-                PZ = -5f,
+                PX = 2f, // Slightly RIGHT
+                PY = 1.5f, // Eye level (lantern on post)
+                PZ = -2f, // Same distance as Duck
                 RX = 0f,
                 RY = 0f,
-                RZ = 90f,
+                RZ = 0f,
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Try to align it!",
+                TextDisplayed = "Historic lighting!",
                 StepsJson = Steps(
                     (
                         "intro",
                         "Challenge",
-                        "This object is about aligning perspective in the square."
+                        "This lantern illuminates the historic square at night."
                     ),
                     (
                         "rotate",
                         "Align",
-                        "Rotate it until it ‘matches’ the direction of the street."
+                        "Try to match the lantern's orientation with the actual street lights."
                     ),
                     (
                         "facts",
@@ -252,19 +264,21 @@ public static class DbSeeder
                     )
                 ),
             },
-            // ---------------- Ponte (2 objects) ----------------
+            // ============================================================
+            // PONTE - SIDE BY SIDE
+            // ============================================================
             new VirtualObject
             {
-                Name = "Ponte - Object A",
+                Name = "Ponte - Scroll",
                 VirtualPlaceId = vpPonte.Id,
                 ModelUrl = scrollObj,
                 ModelUrlTexture = scrollAlbedo,
-                PX = 0f,
-                PY = -5f,
-                PZ = -5f,
+                PX = -2f, // Slightly LEFT
+                PY = 1.0f, // Waist level (scroll on pedestal)
+                PZ = -2f, // Close
                 RX = 0f,
                 RY = 0f,
-                RZ = 90f,
+                RZ = 0f,
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
@@ -273,12 +287,12 @@ public static class DbSeeder
                     (
                         "intro",
                         "Welcome",
-                        "This spot highlights a crossing point connecting neighborhoods."
+                        "This scroll tells the story of the bridge's construction."
                     ),
                     (
                         "rotate",
                         "Explore",
-                        "Rotate the model and observe its structure and direction."
+                        "Rotate to see the ancient text inscribed on the scroll."
                     ),
                     (
                         "facts",
@@ -289,30 +303,30 @@ public static class DbSeeder
             },
             new VirtualObject
             {
-                Name = "Ponte - Object B",
+                Name = "Ponte - Coin Bag",
                 VirtualPlaceId = vpPonte.Id,
                 ModelUrl = coinBagObj,
                 ModelUrlTexture = coinBagAlbedo,
-                PX = 0f,
-                PY = -5f,
-                PZ = 0f,
+                PX = 2f,
+                PY = 0.3f,
+                PZ = -2f,
                 RX = 0f,
                 RY = 0f,
-                RZ = 90f,
+                RZ = 0f,
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Look underneath!",
+                TextDisplayed = "Ancient toll!",
                 StepsJson = Steps(
                     (
                         "intro",
                         "Underpass",
-                        "This object focuses on what’s beneath and around the bridge."
+                        "This coin bag represents the toll once paid to cross the bridge."
                     ),
                     (
                         "rotate",
                         "Inspect angle",
-                        "Rotate and zoom to get a good ‘under-bridge’ viewpoint."
+                        "Rotate and zoom to see the coins spilling from the bag."
                     ),
                     (
                         "facts",
@@ -332,12 +346,11 @@ public static class DbSeeder
         {
             var user = new AppUser
             {
-                UserName = "test", // controller lowercases; "test" is already fine
+                UserName = "test",
                 PasswordSalt = hmac.Key,
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("test")),
             };
 
-            // Create the twin exactly like Register() does: Twin holds User reference
             var twin = new UserTwin { User = user };
 
             db.Users.Add(user);
@@ -346,7 +359,7 @@ public static class DbSeeder
             await db.SaveChangesAsync();
 
             // ----------------------------
-            // 6) Give the user a simple preference profile (so ranking is non-zero)
+            // 6) Give the user a simple preference profile
             // ----------------------------
             db.CategoryWeights.AddRange(
                 new CategoryWeights
@@ -369,7 +382,6 @@ public static class DbSeeder
                 }
             );
 
-            // Optional: seed place likes too
             db.PlaceLikes.AddRange(
                 new PlaceLikes
                 {

@@ -22,4 +22,5 @@ public interface IInteractionEventService
     Task<IReadOnlyList<InteractionEvent>> GetByPlaceAsync(int placeId);
     Task<IReadOnlyList<InteractionEvent>> GetByVirtualPlaceAsync(int virtualPlaceId);
     Task<IReadOnlyList<InteractionEvent>> GetByVirtualObjectAsync(int virtualObjectId);
+    Task<List<InteractionHistoryDto>> GetUserHistoryAsync(int userId, int limit = 30);
 }
