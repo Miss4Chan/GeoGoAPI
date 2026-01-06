@@ -56,7 +56,16 @@ public static class DbSeeder
             Active = true,
         };
 
-        db.Places.AddRange(castelo, praca, ponte);
+        var house = new Place
+        {
+            Name = "House",
+            Latitude = 39.742301,
+            Longitude = -8.812726,
+            CategoryId = catNature.Id,
+            Active = true,
+        };
+
+        db.Places.AddRange(castelo, praca, ponte, house);
         await db.SaveChangesAsync();
 
         // ----------------------------
@@ -65,8 +74,9 @@ public static class DbSeeder
         var vpCastelo = new VirtualPlace { PlaceId = castelo.Id };
         var vpPraca = new VirtualPlace { PlaceId = praca.Id };
         var vpPonte = new VirtualPlace { PlaceId = ponte.Id };
+        var vpHouse = new VirtualPlace { PlaceId = house.Id };
 
-        db.VirtualPlaces.AddRange(vpCastelo, vpPraca, vpPonte);
+        db.VirtualPlaces.AddRange(vpCastelo, vpPraca, vpPonte, vpHouse);
         await db.SaveChangesAsync();
 
         // ----------------------------
@@ -99,11 +109,10 @@ public static class DbSeeder
             "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/sword.obj";
 
         const string castleTexAsset = "models/castle_albedo.png";
-        const string coinTexAsset = "models/coin_albedo.png";
         const string bridgeTexAsset = "models/bridge_albedo.png";
 
         const string coinAlbedo = "models/coin_albedo.png";
-        const string coinBagAlbedo = "models/coin_albedo.png";
+        const string coinBagAlbedo = "models/coin-bag_albedo.png";
         const string duckAlbedo = "models/duck_albedo.png";
         const string guardAlbedo = "models/guard_albedo.png";
         const string lanternAlbedo = "models/lantern_albedo.png";
@@ -332,6 +341,32 @@ public static class DbSeeder
                         "facts",
                         "Fun fact",
                         "Bridges are common reference points in local navigation stories."
+                    )
+                ),
+            },
+            new VirtualObject
+            {
+                Name = "House - Coin",
+                VirtualPlaceId = vpHouse.Id,
+                ModelUrl = coinObj,
+                ModelUrlTexture = coinAlbedo,
+                PX = 0f,
+                PY = 0.5f,
+                PZ = -2f,
+                RX = 0f,
+                RY = 0f,
+                RZ = 0f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
+                TextDisplayed = "A shiny coin!",
+                StepsJson = Steps(
+                    ("intro", "Welcome", "This coin represents prosperity and good fortune."),
+                    ("rotate", "Check details", "Rotate the coin to see its intricate design."),
+                    (
+                        "facts",
+                        "Cultural note",
+                        "Coins have been used as currency for thousands of years."
                     )
                 ),
             }
