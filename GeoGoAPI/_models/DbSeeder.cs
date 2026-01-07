@@ -49,9 +49,9 @@ public static class DbSeeder
 
         var ponte = new Place
         {
-            Name = "Ponte Bairro dos Anjos",
-            Latitude = 39.74473232891287,
-            Longitude = -8.805205706511261,
+            Name = "Ponte Ondolada",
+            Latitude = 39.7460861,
+            Longitude = -8.8036494,
             CategoryId = catNature.Id,
             Active = true,
         };
@@ -132,7 +132,7 @@ public static class DbSeeder
 
         db.VirtualObjects.AddRange(
             // ============================================================
-            // CASTELO - SIDE BY SIDE (Both visible at once!)
+            // CASTELO - Historical figures
             // ============================================================
             new VirtualObject
             {
@@ -149,23 +149,11 @@ public static class DbSeeder
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Welcome to the castle!",
+                TextDisplayed = "Castle Guard",
                 StepsJson = Steps(
-                    (
-                        "intro",
-                        "Welcome",
-                        "This guard has stood watch at Castelo de Leiria for centuries."
-                    ),
-                    (
-                        "rotate",
-                        "Check details",
-                        "Rotate the object to see the guard's armor and equipment."
-                    ),
-                    (
-                        "facts",
-                        "History note",
-                        "The castle was built in 1135 and has been restored multiple times."
-                    )
+                    ("intro", "Guard", "Medieval castle defender."),
+                    ("rotate", "Inspect", "Check the armor details."),
+                    ("complete", "Done", "Guard inspected!")
                 ),
             },
             new VirtualObject
@@ -183,32 +171,67 @@ public static class DbSeeder
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Ancient defense!",
+                TextDisplayed = "Medieval Shield",
                 StepsJson = Steps(
-                    (
-                        "intro",
-                        "Discovery",
-                        "Medieval shields were both defensive tools and symbols of honor."
-                    ),
-                    (
-                        "rotate",
-                        "Check details",
-                        "Look for the heraldic symbols on the shield's face."
-                    ),
-                    (
-                        "facts",
-                        "Culture note",
-                        "Each shield design represented a family or military order."
-                    )
+                    ("intro", "Shield", "Defensive armor piece."),
+                    ("rotate", "Details", "Look at the heraldic symbols."),
+                    ("complete", "Done", "Shield inspected!")
                 ),
             },
             // ============================================================
-            // PRAÇA - SIDE BY SIDE
+            // PRAÇA - Cultural items
             // ============================================================
             new VirtualObject
             {
-                Name = "Praça - Duck",
+                Name = "Praça - Lantern",
                 VirtualPlaceId = vpPraca.Id,
+                ModelUrl = lanternObj,
+                ModelUrlTexture = lanternAlbedo,
+                PX = -2f,
+                PY = 1.5f,
+                PZ = -2f,
+                RX = 0f,
+                RY = 0f,
+                RZ = 0f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
+                TextDisplayed = "Historic Lantern",
+                StepsJson = Steps(
+                    ("intro", "Lantern", "Square illumination."),
+                    ("rotate", "Inspect", "View the lantern design."),
+                    ("complete", "Done", "Lantern inspected!")
+                ),
+            },
+            new VirtualObject
+            {
+                Name = "Praça - Scroll",
+                VirtualPlaceId = vpPraca.Id,
+                ModelUrl = scrollObj,
+                ModelUrlTexture = scrollAlbedo,
+                PX = 2f,
+                PY = 1.0f,
+                PZ = -2f,
+                RX = 0f,
+                RY = 0f,
+                RZ = 0f,
+                SX = 0.3f,
+                SY = 0.3f,
+                SZ = 0.3f,
+                TextDisplayed = "Ancient Scroll",
+                StepsJson = Steps(
+                    ("intro", "Scroll", "Historical document."),
+                    ("rotate", "Read", "See the ancient text."),
+                    ("complete", "Done", "Scroll inspected!")
+                ),
+            },
+            // ============================================================
+            // PONTE - Nature/Bridge themed
+            // ============================================================
+            new VirtualObject
+            {
+                Name = "Ponte - Duck",
+                VirtualPlaceId = vpPonte.Id,
                 ModelUrl = duckObj,
                 ModelUrlTexture = duckAlbedo,
                 PX = -2f,
@@ -220,94 +243,11 @@ public static class DbSeeder
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Welcome to the square!",
+                TextDisplayed = "River Duck",
                 StepsJson = Steps(
-                    (
-                        "intro",
-                        "Welcome",
-                        "Praça Rodrigues Lobo is one of Leiria's most iconic social spots."
-                    ),
-                    (
-                        "rotate",
-                        "Check details",
-                        "This duck represents the playful spirit of the square."
-                    ),
-                    (
-                        "facts",
-                        "Culture note",
-                        "This square often hosts events, music, and local gatherings."
-                    )
-                ),
-            },
-            new VirtualObject
-            {
-                Name = "Praça - Lantern",
-                VirtualPlaceId = vpPraca.Id,
-                ModelUrl = lanternObj,
-                ModelUrlTexture = lanternAlbedo,
-                PX = 2f, // Slightly RIGHT
-                PY = 1.5f, // Eye level (lantern on post)
-                PZ = -2f, // Same distance as Duck
-                RX = 0f,
-                RY = 0f,
-                RZ = 0f,
-                SX = 0.3f,
-                SY = 0.3f,
-                SZ = 0.3f,
-                TextDisplayed = "Historic lighting!",
-                StepsJson = Steps(
-                    (
-                        "intro",
-                        "Challenge",
-                        "This lantern illuminates the historic square at night."
-                    ),
-                    (
-                        "rotate",
-                        "Align",
-                        "Try to match the lantern's orientation with the actual street lights."
-                    ),
-                    (
-                        "facts",
-                        "Local tip",
-                        "Cafés around the praça are a popular stop for students and tourists."
-                    )
-                ),
-            },
-            // ============================================================
-            // PONTE - SIDE BY SIDE
-            // ============================================================
-            new VirtualObject
-            {
-                Name = "Ponte - Scroll",
-                VirtualPlaceId = vpPonte.Id,
-                ModelUrl = scrollObj,
-                ModelUrlTexture = scrollAlbedo,
-                PX = -2f, // Slightly LEFT
-                PY = 1.0f, // Waist level (scroll on pedestal)
-                PZ = -2f, // Close
-                RX = 0f,
-                RY = 0f,
-                RZ = 0f,
-                SX = 0.3f,
-                SY = 0.3f,
-                SZ = 0.3f,
-                TextDisplayed = "Bridge checkpoint.",
-                StepsJson = Steps(
-                    (
-                        "intro",
-                        "Welcome",
-                        "This scroll tells the story of the bridge's construction."
-                    ),
-                    (
-                        "rotate",
-                        "Explore",
-                        "Rotate to see the ancient text inscribed on the scroll."
-                    ),
-                    (
-                        "facts",
-                        "Nature note",
-                        "Areas near bridges often become small biodiversity corridors."
-                    )
+                    ("intro", "Duck", "Bridge wildlife."),
+                    ("rotate", "Observe", "Watch the duck."),
+                    ("complete", "Done", "Duck observed!")
                 ),
             },
             new VirtualObject
@@ -325,25 +265,16 @@ public static class DbSeeder
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "Ancient toll!",
+                TextDisplayed = "Bridge Toll",
                 StepsJson = Steps(
-                    (
-                        "intro",
-                        "Underpass",
-                        "This coin bag represents the toll once paid to cross the bridge."
-                    ),
-                    (
-                        "rotate",
-                        "Inspect angle",
-                        "Rotate and zoom to see the coins spilling from the bag."
-                    ),
-                    (
-                        "facts",
-                        "Fun fact",
-                        "Bridges are common reference points in local navigation stories."
-                    )
+                    ("intro", "Toll", "Ancient bridge payment."),
+                    ("rotate", "Coins", "See the old coins."),
+                    ("complete", "Done", "Toll inspected!")
                 ),
             },
+            // ============================================================
+            // HOUSE - Simple demo object
+            // ============================================================
             new VirtualObject
             {
                 Name = "House - Coin",
@@ -359,15 +290,11 @@ public static class DbSeeder
                 SX = 0.3f,
                 SY = 0.3f,
                 SZ = 0.3f,
-                TextDisplayed = "A shiny coin!",
+                TextDisplayed = "Lucky Coin",
                 StepsJson = Steps(
-                    ("intro", "Welcome", "This coin represents prosperity and good fortune."),
-                    ("rotate", "Check details", "Rotate the coin to see its intricate design."),
-                    (
-                        "facts",
-                        "Cultural note",
-                        "Coins have been used as currency for thousands of years."
-                    )
+                    ("intro", "Coin", "A shiny coin."),
+                    ("rotate", "Flip", "Rotate the coin."),
+                    ("complete", "Done", "Coin collected!")
                 ),
             }
         );
