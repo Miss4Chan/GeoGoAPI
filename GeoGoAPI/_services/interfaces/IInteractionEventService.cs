@@ -4,10 +4,6 @@ namespace GeoGoAPI._services.interfaces;
 
 public interface IInteractionEventService
 {
-    /// <summary>
-    /// Logs a new interaction event with optional references.
-    /// Timestamp is set to UtcNow by default (DB also has a default).
-    /// </summary>
     Task<InteractionEvent> LogEventAsync(
         int? userTwinId,
         int? placeId,
