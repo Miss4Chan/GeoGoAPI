@@ -82,14 +82,6 @@ public static class DbSeeder
         // ----------------------------
         // 4) VirtualObjects (2 per virtual place)
         // ----------------------------
-        const string casteloObj =
-            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/castle.obj";
-
-        const string pracaObj =
-            "https://raw.githubusercontent.com/lCubosl/geogo-objects/main/coin.obj";
-
-        const string ponteObj =
-            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/bridge_mesh.obj";
 
         const string coinObj =
             "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/coin.obj";
@@ -105,11 +97,6 @@ public static class DbSeeder
             "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/scroll.obj";
         const string shieldObj =
             "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/shield.obj";
-        const string swordObj =
-            "https://raw.githubusercontent.com/lCubosl/geogo-objects/refs/heads/main/exports/sword.obj";
-
-        const string castleTexAsset = "models/castle_albedo.png";
-        const string bridgeTexAsset = "models/bridge_albedo.png";
 
         const string coinAlbedo = "models/coin_albedo.png";
         const string coinBagAlbedo = "models/coin-bag_albedo.png";
@@ -118,7 +105,6 @@ public static class DbSeeder
         const string lanternAlbedo = "models/lantern_albedo.png";
         const string scrollAlbedo = "models/scroll_albedo.png";
         const string shieldAlbedo = "models/shield_albedo.png";
-        const string swordAlbedo = "models/sword_albedo.png";
 
         static string Steps(params (string id, string title, string text)[] steps) =>
             $$"""
